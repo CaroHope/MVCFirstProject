@@ -7,5 +7,7 @@
         public string Apellido { get; set; }
         public string Telefono { get; set; }
         public char Status { get; set; }
+
+        public ICollection<Factura> Facturas { get; set; }
     }
 }

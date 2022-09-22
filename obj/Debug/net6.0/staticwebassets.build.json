@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fdVm7RdGC73dpwlyUDKBQQgVoO3ZeBT7JpR9xS5tiIo=",
+  "Hash": "HQca38FTpgk3GyE4SxuqB4HwrOa/nGEwxuvO5PlqfjM=",
   "Source": "AdministracionEmpresaMVC",
   "BasePath": "_content/AdministracionEmpresaMVC",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Datos\\Documentoss\\Studies\\A UNPHU\\3 Tercer Año\\Noveno Cuatri\\LP2 - Lenguajes de Programación II\\Proyectos\\AdministracionEmpresaMVC\\wwwroot\\img\\star.png",
+      "SourceId": "AdministracionEmpresaMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Datos\\Documentoss\\Studies\\A UNPHU\\3 Tercer Año\\Noveno Cuatri\\LP2 - Lenguajes de Programación II\\Proyectos\\AdministracionEmpresaMVC\\wwwroot\\",
+      "BasePath": "_content/AdministracionEmpresaMVC",
+      "RelativePath": "img/star.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\star.png"
     },
     {
       "Identity": "D:\\Datos\\Documentoss\\Studies\\A UNPHU\\3 Tercer Año\\Noveno Cuatri\\LP2 - Lenguajes de Programación II\\Proyectos\\AdministracionEmpresaMVC\\wwwroot\\js\\site.js",
