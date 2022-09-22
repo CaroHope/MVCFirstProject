@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AdministracionEmpresaMVC.Models.Cliente>
+﻿@model IEnumerable<AdministracionEmpresaMVC.Models.Producto>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,16 +10,19 @@
     <a asp-action="Create">Create New</a>
 </p>
 <table class="table table-striped">
-    <thead class="table-dark">
+    <thead class="table-success">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Apellido)
+                @Html.DisplayNameFor(model => model.Descripcion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Telefono)
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaGarantia)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Status)
@@ -34,10 +37,13 @@
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Apellido)
+                @Html.DisplayFor(modelItem => item.Descripcion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaGarantia)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)

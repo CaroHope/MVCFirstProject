@@ -4,6 +4,7 @@ using AdministracionEmpresaMVC.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdministracionEmpresaMVC.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220922035221_CompleteModels")]
+    partial class CompleteModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,20 +61,16 @@ namespace AdministracionEmpresaMVC.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Descripcion")
+                    b.Property<string>("Detalle")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("FacturaID")
+                    b.Property<int>("FacturaId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FacturaID");
+                    b.HasIndex("FacturaId");
 
                     b.ToTable("DetalleFacturas");
                 });
@@ -85,12 +83,8 @@ namespace AdministracionEmpresaMVC.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ClienteID")
+                    b.Property<int>("ClienteId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Empresa")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Monto")
                         .HasColumnType("int");
@@ -99,13 +93,12 @@ namespace AdministracionEmpresaMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(1)");
 
-                    b.Property<string>("fecha")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("fecha")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClienteID");
+                    b.HasIndex("ClienteId");
 
                     b.ToTable("Facturas");
                 });
@@ -122,12 +115,8 @@ namespace AdministracionEmpresaMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("DetalleFacturaId")
+                    b.Property<int>("DetalleFacturaId")
                         .HasColumnType("int");
-
-                    b.Property<string>("FechaGarantia")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -151,7 +140,7 @@ namespace AdministracionEmpresaMVC.Migrations
                 {
                     b.HasOne("AdministracionEmpresaMVC.Models.Factura", "Factura")
                         .WithMany()
-                        .HasForeignKey("FacturaID")
+                        .HasForeignKey("FacturaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -162,7 +151,7 @@ namespace AdministracionEmpresaMVC.Migrations
                 {
                     b.HasOne("AdministracionEmpresaMVC.Models.Cliente", "Cliente")
                         .WithMany("Facturas")
-                        .HasForeignKey("ClienteID")
+                        .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -171,9 +160,13 @@ namespace AdministracionEmpresaMVC.Migrations
 
             modelBuilder.Entity("AdministracionEmpresaMVC.Models.Producto", b =>
                 {
-                    b.HasOne("AdministracionEmpresaMVC.Models.DetalleFactura", null)
+                    b.HasOne("AdministracionEmpresaMVC.Models.DetalleFactura", "DetalleFactura")
                         .WithMany("Productos")
-                        .HasForeignKey("DetalleFacturaId");
+                        .HasForeignKey("DetalleFacturaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DetalleFactura");
                 });
 
             modelBuilder.Entity("AdministracionEmpresaMVC.Models.Cliente", b =>
